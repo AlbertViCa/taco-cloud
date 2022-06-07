@@ -5,7 +5,6 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +15,16 @@ public class TacoOrder {
     @NotBlank(message = "Delivery name is required")
     private String deliveryName;
 
-    @NotNull(message = "Street is required")
+    @NotBlank(message = "Street is required")
     private String deliveryStreet;
 
-    @NotNull(message = "City is required")
+    @NotBlank(message = "City is required")
     private String deliveryCity;
 
-    @NotNull(message = "State is required")
+    @NotBlank(message = "State is required")
     private String deliveryState;
 
-    @NotNull(message = "Zip code is required")
+    @NotBlank(message = "Zip code is required")
     private String deliveryZip;
 
     @CreditCardNumber(message = "Not a valid credit card number")
