@@ -1,14 +1,15 @@
 package sia.tacos.model;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Data
+@Entity
 @Builder
-@Table
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
 public class Ingredient {
 
     @Id
