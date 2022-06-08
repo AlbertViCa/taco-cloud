@@ -2,6 +2,7 @@ package sia.tacos.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Table
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
