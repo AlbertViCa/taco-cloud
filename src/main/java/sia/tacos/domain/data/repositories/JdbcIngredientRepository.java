@@ -1,5 +1,7 @@
 package sia.tacos.domain.data.repositories;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import sia.tacos.domain.data.repositories.interfaces.IngredientRepository;
@@ -38,7 +40,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
     }
 
     @Override
-    public Ingredient save(Ingredient ingredient) {
+    public Ingredient save(@NotNull Ingredient ingredient) {
         jdbcTemplate.update(
                 "insert into Ingredient (id, name, type) values (?, ?, ?)",
                 ingredient.getId(),
@@ -47,7 +49,8 @@ public class JdbcIngredientRepository implements IngredientRepository {
         return ingredient;
     }
 
-    private Ingredient mapRowToIngredient(ResultSet row, int rowNum) throws SQLException {
+    @Contract("_, _ -> new")
+    private @NotNull Ingredient mapRowToIngredient(@NotNull ResultSet row, int rowNum) throws SQLException {
         return new Ingredient(
                 row.getString("id"),
                 row.getString("name"),
