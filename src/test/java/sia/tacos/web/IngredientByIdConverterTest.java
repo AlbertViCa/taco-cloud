@@ -2,7 +2,7 @@ package sia.tacos.web;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import sia.tacos.domain.data.repositories.interfaces.IngredientRepository;
+import sia.tacos.domain.data.repositories.IngredientRepository;
 import sia.tacos.model.Ingredient;
 import sia.tacos.model.Ingredient.Type;
 import sia.tacos.web.converters.IngredientByIdConverter;

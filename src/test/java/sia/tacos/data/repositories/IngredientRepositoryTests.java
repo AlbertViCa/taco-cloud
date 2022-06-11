@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import sia.tacos.domain.data.repositories.interfaces.IngredientRepository;
+import sia.tacos.domain.data.repositories.IngredientRepository;
 import sia.tacos.model.Ingredient;
 import sia.tacos.model.Ingredient.Type;
 

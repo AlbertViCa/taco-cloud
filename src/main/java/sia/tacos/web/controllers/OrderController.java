@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import sia.tacos.domain.data.repositories.interfaces.OrderRepository;
+import sia.tacos.domain.data.repositories.OrderRepository;
 import sia.tacos.model.TacoOrder;
 import sia.tacos.model.User;
 

@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import sia.tacos.domain.data.repositories.interfaces.IngredientRepository;
-import sia.tacos.domain.data.repositories.interfaces.OrderRepository;
+import sia.tacos.domain.data.repositories.IngredientRepository;
+import sia.tacos.domain.data.repositories.OrderRepository;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

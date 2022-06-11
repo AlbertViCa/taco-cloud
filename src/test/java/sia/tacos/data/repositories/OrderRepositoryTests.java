@@ -3,7 +3,7 @@ package sia.tacos.data.repositories;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import sia.tacos.domain.data.repositories.interfaces.OrderRepository;
+import sia.tacos.domain.data.repositories.OrderRepository;
 import sia.tacos.model.Ingredient;
 import sia.tacos.model.Ingredient.Type;
 import sia.tacos.model.Taco;

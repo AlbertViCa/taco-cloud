@@ -4,7 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import sia.tacos.domain.data.repositories.interfaces.IngredientRepository;
+import sia.tacos.domain.data.repositories.IngredientRepository;
 import sia.tacos.model.Ingredient;
 
 @SpringBootApplication
