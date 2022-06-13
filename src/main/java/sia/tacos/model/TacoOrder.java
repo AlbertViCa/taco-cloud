@@ -3,14 +3,7 @@ package sia.tacos.model;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -22,13 +15,13 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="Taco_Order")
+@Table(name="taco_order")
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Date placedAt;
@@ -49,6 +42,7 @@ public class TacoOrder implements Serializable {
     private String deliveryState;
 
     @NotBlank(message = "Zip code is required")
+    @Column(name="zip_code")
     private String deliveryZip;
 
     @CreditCardNumber(message = "Not a valid credit card number")
@@ -58,9 +52,13 @@ public class TacoOrder implements Serializable {
     private String ccExpiration;
 
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
+    @Column(name="cc_cvv")
     private String ccCVV;
 
-    @ManyToMany(targetEntity=Taco.class)
+    @ManyToMany(targetEntity = Taco.class)
+    @JoinTable(name = "taco_order_has_taco",
+            joinColumns = @JoinColumn(name = "taco_order_id"),
+            inverseJoinColumns = @JoinColumn(name = "taco_id"))
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco) {

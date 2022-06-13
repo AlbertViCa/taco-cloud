@@ -2,6 +2,7 @@ package sia.tacos.domain.data.security.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,7 +22,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(UserRepository userRepo) {
+    public UserDetailsService userDetailsService(UserRepository userRepo) throws InternalAuthenticationServiceException {
         return username -> userRepo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User '" + username + "' not found"));
     }

@@ -11,12 +11,14 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name="taco")
 public class Taco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "date")
     private Date createdAt;
 
     @NotNull
@@ -25,7 +27,10 @@ public class Taco {
 
     @NotNull
     @Size(min = 1, message = "You must choose at least 1 ingredient")
-    @ManyToMany
+    @ManyToMany(targetEntity = Ingredient.class)
+    @JoinTable(name = "taco_has_ingredient"
+            , joinColumns = @JoinColumn(name = "taco_id")
+            , inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private List<Ingredient> ingredients = new ArrayList<>();
 
     public void addIngredient(Ingredient ingredient) {
