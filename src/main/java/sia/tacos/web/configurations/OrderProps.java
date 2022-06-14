@@ -3,6 +3,7 @@ package sia.tacos.web.configurations;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Max;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Min;
 
 @Component
 @ConfigurationProperties(prefix = "taco.orders")
+@EnableConfigurationProperties
 @Getter
 @Setter
 public class OrderProps {
