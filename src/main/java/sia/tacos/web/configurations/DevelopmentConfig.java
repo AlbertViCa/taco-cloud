@@ -33,7 +33,7 @@ public class DevelopmentConfig {
       ingredientRepository.save(Ingredient.builder().id("SLSA").name("Salsa").type(Type.SAUCE).build());
       ingredientRepository.save(Ingredient.builder().id("SRCR").name("Sour Cream").type(Type.SAUCE).build());
 
-      userRepo.save(new User("albert0_vc", encoder.encode("123"),
+      userRepo.save(new User("alberto_vc", encoder.encode("123"),
           "Alberto Villalpando Cardona", "José Ma. Morelos #58", "Guadalupe", "Zacatecas",
           "98630", "4922023265"));
     };
